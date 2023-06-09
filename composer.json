@@ -1,0 +1,10 @@
+{
+    "name": "kwozniak/fullstack-recruitment-task",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Kwozniak\\FullstackRecruitmentTask\\": "src/"
+        }
+    },
+    "require": {}
+}
