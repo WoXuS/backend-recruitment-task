@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass --watch assets/css/ -o assets/css/",
-    "serve": "browser-sync start --proxy localhost:8000 --files 'assets/css/*.css, **/*.html, **/*.php'",
+    "serve": "browser-sync start --proxy localhost:8000 --files 'assets/css/*.css, assets/js/*.js, **/*.html, **/*.php'",
     "start": "concurrently \"npm:scss\" \"npm:serve\""
   },
   "author": "",
@@ -14,7 +14,9 @@
   "devDependencies": {
     "browser-sync": "^2.29.3",
     "concurrently": "^8.2.0",
+    "eslint": "^8.7.0",
     "node-sass": "^9.0.0",
+    "prettier": "^2.5.1",
     "sass": "^1.63.2"
   }
 }

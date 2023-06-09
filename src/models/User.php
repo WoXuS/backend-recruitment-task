@@ -3,12 +3,15 @@ class User
 {
     private $dataFile = __DIR__ . '/../../dataset/users.json';
 
-    public function getAllUsers() {
+    public function getAllUsers()
+    {
         $data = json_decode(file_get_contents($this->dataFile), true);
         return $data;
     }
 
-    public function removeUser($id) {
+    public function removeUser($id)
+    {
+        $id = (int)$id;
         $users = $this->getAllUsers();
         foreach ($users as $index => $user) {
             if ($user['id'] === $id) {
@@ -16,10 +19,11 @@ class User
                 break;
             }
         }
-        file_put_contents($this->dataFile, json_encode($users));
+        file_put_contents($this->dataFile, json_encode($users, JSON_PRETTY_PRINT));
     }
 
-    public function addUser($newUser) {
+    public function addUser($newUser)
+    {
         $users = $this->getAllUsers();
         $users[] = $newUser;
         file_put_contents($this->dataFile, json_encode($users));

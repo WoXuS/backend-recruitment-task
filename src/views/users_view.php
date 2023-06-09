@@ -39,6 +39,16 @@ function displayTable($users)
             </tr>
         <?php endforeach; ?>
     </table>
+    <!-- <form action="/" method="POST">
+        <label>Name: <input type="text" name="name"></label>
+        <label>Username: <input type="text" name="username"></label>
+        <label>Email: <input type="email" name="email"></label>
+        <label>Address: <input type="text" name="address"></label>
+        <label>Phone: <input type="tel" name="phone"></label>
+        <label>Company: <input type="text" name="company"></label>
+        <input type="submit" value="Submit">
+    </form> -->
+
     <?php
     return ob_get_clean();
 }

@@ -6,21 +6,26 @@ class UsersController
 {
     private $userModel;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->userModel = new User();
     }
 
-    public function index() {
+    public function index()
+    {
         $users = $this->userModel->getAllUsers();
         echo displayTable($users);
+        
     }
 
-    public function removeUser($id) {
+    public function removeUser($id)
+    {
         $this->userModel->removeUser($id);
         $this->index();
     }
 
-    public function addUser($newUser) {
+    public function addUser($newUser)
+    {
         $this->userModel->addUser($newUser);
         $this->index();
     }
