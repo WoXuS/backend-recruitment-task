@@ -12,7 +12,7 @@ class UsersController
 
     public function index() {
         $users = $this->userModel->getAllUsers();
-        displayTable($users);
+        echo displayTable($users);
     }
 
     public function removeUser($id) {
