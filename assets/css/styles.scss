@@ -1,4 +1,19 @@
-/*Add your custom styles here*/
-.starting-title {
-    text-align: center;
+.add-form__container {
+  max-width: 800px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  display: none;
+  font-size: 0.8em;
+  margin-top: 0.2em;
 }

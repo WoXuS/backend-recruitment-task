@@ -1,11 +1,11 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./docker
+    image: kwozniak/mvc_table
     volumes:
       - .:/var/www/html
     ports:
       - 8000:80
-
+    extra_hosts:
+      - host.docker.internal:host-gateway

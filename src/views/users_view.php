@@ -25,9 +25,8 @@ function displayTable($users)
                 </td>
                 <td>
                     <?= htmlspecialchars($user['address']['street']) ?>,
-                    <?= htmlspecialchars($user['address']['suite']) ?>,
-                    <?= htmlspecialchars($user['address']['city']) ?>,
                     <?= htmlspecialchars($user['address']['zipcode']) ?>
+                    <?= htmlspecialchars($user['address']['city']) ?>
                 </td>
                 <td>
                     <?= htmlspecialchars($user['phone']) ?>
@@ -39,16 +38,24 @@ function displayTable($users)
             </tr>
         <?php endforeach; ?>
     </table>
-    <!-- <form action="/" method="POST">
-        <label>Name: <input type="text" name="name"></label>
-        <label>Username: <input type="text" name="username"></label>
-        <label>Email: <input type="email" name="email"></label>
-        <label>Address: <input type="text" name="address"></label>
-        <label>Phone: <input type="tel" name="phone"></label>
-        <label>Company: <input type="text" name="company"></label>
-        <input type="submit" value="Submit">
-    </form> -->
-
+    <div class="add-form__container">
+        <form action="/" method="POST" id="add-form__form" novalidate>
+            <div><label>First Name: <input type="text" name="first_name" required></label></div>
+            <div><label>Last Name: <input type="text" name="last_name" required></label></div>
+            <div><label>Username: <input type="text" name="username" required></label></div>
+            <div><label>Email: <input type="email" name="email" required></label></div>
+            <div><label>Street: <input type="text" name="street" required></label></div>
+            <div><label>City: <input type="text" name="city" required></label></div>
+            <div><label>Zip code: <input type="text" name="zipcode" required></label></div>
+            <div><label>Phone:
+                    <input type="text" id="phone" name="phone" required>
+                    <input type="text" name="extension">
+                    <input type="text" name="country_code">
+                </label></div>
+            <div><label>Company: <input type="text" name="company" required></label></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <?php
     return ob_get_clean();
 }

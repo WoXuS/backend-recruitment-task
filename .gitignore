@@ -1,2 +1,6 @@
-/vendor/
+.idea
+vendor
+composer.lock
+.env
+.vscode
 node_modules

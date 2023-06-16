@@ -14,6 +14,7 @@
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
@@ -28,7 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'] ?? '';
         $controller->removeUser($id);
     } else if ($action === 'add') {
-        $newUser = $_POST['newUser'] ?? '';
+        $newUser = [];
+        if (isset($_POST['newUser'])) {
+            parse_str($_POST['newUser'], $newUser);
+        }
         $controller->addUser($newUser);
     }
 } else {
