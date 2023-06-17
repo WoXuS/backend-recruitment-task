@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "nodemon -e scss -w assets/css/ -x \"node-sass assets/css/ -o assets/css/\" --delay 1",
-    "serve": "browser-sync start --proxy localhost:8000 --files 'assets/css/*.css, assets/js/*.js, **/*.html, **/*.php'",
+    "scss": "nodemon -e scss -w assets/css/scss/ -x \"node-sass assets/css/scss/styles.scss assets/css/compiled/styles.css\" --delay 1",
+    "serve": "browser-sync start --proxy localhost:8000 --files 'assets/css/compiled/*.css, assets/js/*.js, **/*.html, **/*.php'",
     "start": "concurrently \"npm:scss\" \"npm:serve\""
   },
   "author": "",
