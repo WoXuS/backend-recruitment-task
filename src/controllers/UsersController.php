@@ -40,12 +40,12 @@ class UsersController
             die("Only letters and numbers allowed for username");
         }
 
-        if (!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)) {
+        if (!htmlspecialchars($newUser['email'], FILTER_VALIDATE_EMAIL)) {
             // Validate email
             die("Invalid email format");
         }
 
-        if (!preg_match("/^[a-zA-Z0-9\.]*$/", $newUser['street'])) {
+        if (!preg_match("/^[a-zA-Z0-9\. ]*$/", $newUser['street'])) {
             // Only letters and numbers are allowed for street
             die("Invalid street name");
         }
@@ -63,10 +63,9 @@ class UsersController
         if (!preg_match("/^\+1 \(\d{3}\) \d{3}-\d{4}$/", $newUser['phone'])) {
             die("Invalid phone number");
         }
-        if (!preg_match("/^x\d{0,6}$/", $newUser['extension'])) {
+        if (!preg_match("/^(x\d{0,6})?$/", $newUser['extension'])) {
             die("Invalid extension number");
         }
-
         if (!preg_match("/^[ -~]*$/", $newUser['company'])) {
             //any printable
             die("Invalid characters in company name");
@@ -74,14 +73,14 @@ class UsersController
 
 
         $newUser = array(
-            'name' => filter_var($newUser['name'], FILTER_SANITIZE_STRING),
-            'username' => filter_var($newUser['username'], FILTER_SANITIZE_STRING),
+            "name" => htmlspecialchars($newUser['first_name'] . " " . $newUser['last_name']),
+            'username' => htmlspecialchars($newUser['username']),
             'email' => filter_var($newUser['email'], FILTER_SANITIZE_EMAIL),
-            'street' => filter_var($newUser['street'], FILTER_SANITIZE_STRING),
-            'city' => filter_var($newUser['city'], FILTER_SANITIZE_STRING),
-            'zipcode' => filter_var($newUser['zipcode'], FILTER_SANITIZE_STRING),
-            'phone' => filter_var($newUser['phone'], FILTER_SANITIZE_STRING),
-            'company' => filter_var($newUser['company'], FILTER_SANITIZE_STRING),
+            'street' => htmlspecialchars($newUser['street']),
+            'city' => htmlspecialchars($newUser['city']),
+            'zipcode' => htmlspecialchars($newUser['zipcode']),
+            'phone' => htmlspecialchars($newUser['phone'] . (!empty($newUser['extension']) ? " " . $newUser['extension'] : '')),
+            'company' => htmlspecialchars($newUser['company']),
         );
 
         $this->userModel->addUser($newUser);

@@ -228,5 +228,28 @@
             "catchPhrase": "Centralized empowering task-force",
             "bs": "target end-to-end models"
         }
+    },
+    {
+        "id": 12,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "john.doe@example.com",
+        "address": {
+            "street": "123 Main St",
+            "suite": "Default Suite",
+            "city": "Los Angeles",
+            "zipcode": "90210",
+            "geo": {
+                "lat": "0.0000",
+                "lng": "0.0000"
+            }
+        },
+        "phone": "+1 (123) 456-7890 x123456",
+        "website": "defaultwebsite.com",
+        "company": {
+            "name": "Acme Inc",
+            "catchPhrase": "Default CatchPhrase",
+            "bs": "Default BS"
+        }
     }
 ]

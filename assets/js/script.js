@@ -107,7 +107,7 @@ $(document).ready(function () {
             }
             break;
           case 'street':
-            if (!/^[a-zA-Z0-9\.]*$/.test(value)) {
+            if (!/^[a-zA-Z0-9\. ]*$/.test(value)) {
               error = 'Invalid street. Only letters and numbers are allowed';
             }
             break;
