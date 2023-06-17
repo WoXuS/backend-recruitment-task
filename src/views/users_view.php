@@ -66,7 +66,7 @@ function displayTable($users)
                     <label for="street" id="street-label">Street</label>
                 </div>
                 <div class="form__input">
-                    <input type="text" name="zipcode" id="zipcode" value="90210">
+                    <input type="text" name="zipcode" id="zipcode" value="902101234">
                     <label for="zipcode" id="zipcode-label">Zip Code</label>
                 </div>
                 <div class="form__input">

@@ -25,52 +25,50 @@ class UsersController
 
     public function addUser($newUser)
     {
+        $_SESSION['errors'] = array();
         if (!preg_match("/^\s*[a-zA-Z][a-zA-Z\s]*$/", $newUser['first_name'])) {
-            // Only letters and white space allowed for first name, and it should contain at least one letter
-            die("Invalid first name");
+            $_SESSION['errors']['first_name'] = "Invalid first name";
         }
 
         if (!preg_match("/^\s*[a-zA-Z][a-zA-Z\s]*$/", $newUser['last_name'])) {
-            // Only letters and white space allowed for last name, and it should contain at least one letter
-            die("Invalid last name");
+            $_SESSION['errors']['last_name'] = "Invalid last name";
         }
 
-        if (!preg_match("/^[ -~]*$/", $newUser['username'])) {
-            // All printable characters are allowed for username
-            die("Only letters and numbers allowed for username");
+        if (!preg_match("/^[a-zA-Z ]*$/", $newUser['username'])) {
+            $_SESSION['errors']['username'] = "Invalid username";
         }
 
         if (!htmlspecialchars($newUser['email'], FILTER_VALIDATE_EMAIL)) {
-            // Validate email
-            die("Invalid email format");
+            $_SESSION['errors']['email'] = "Invalid email";
         }
 
         if (!preg_match("/^[a-zA-Z0-9\. ]*$/", $newUser['street'])) {
-            // Only letters and numbers are allowed for street
-            die("Invalid street name");
+            $_SESSION['errors']['street'] = "Invalid street";
         }
 
         if (!preg_match("/^[a-zA-Z ]*$/", $newUser['city'])) {
-            // Only letters and white space allowed
-            die("Invalid city name");
+            $_SESSION['errors']['city'] = "Invalid city";
         }
 
         if (!preg_match("/^\d{5}(-\d{4})?$/", $newUser['zipcode'])) {
-            // 12345-1234
-            die("Invalid zip code");
+            $_SESSION['errors']['zipcode'] = "Invalid zip code";
         }
 
         if (!preg_match("/^\+1 \(\d{3}\) \d{3}-\d{4}$/", $newUser['phone'])) {
-            die("Invalid phone number");
+            $_SESSION['errors']['phone'] = "Invalid phone";
         }
         if (!preg_match("/^(x\d{0,6})?$/", $newUser['extension'])) {
-            die("Invalid extension number");
+            $_SESSION['errors']['extension'] = "Invalid phone extension";
         }
         if (!preg_match("/^[ -~]*$/", $newUser['company'])) {
-            //any printable
-            die("Invalid characters in company name");
+            $_SESSION['errors']['company'] = "Invalid company";
         }
 
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            header('Content-Type: application/json');
+            echo json_encode(['errors' => $_SESSION['errors']]);
+            exit;
+        }
 
         $newUser = array(
             "name" => htmlspecialchars($newUser['first_name'] . " " . $newUser['last_name']),

@@ -14,7 +14,13 @@ $(document).ready(function () {
     if (!validateForm()) return;
     let formData = $(this).serialize();
     $.post('/', { action: 'add', newUser: formData }, function (response) {
-      location.reload();
+      if (response.errors) {
+        for (let field in response.errors) {
+          displayError(document.forms['add-form__form'][field], response.errors[field]);
+        }
+      } else {
+        location.reload();
+      }
     });
   });
 
