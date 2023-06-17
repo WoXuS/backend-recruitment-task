@@ -2,7 +2,7 @@
 function displayTable($users)
 {
     ob_start();
-    ?>
+?>
     <table>
         <tr>
             <th>Name</th>
@@ -12,7 +12,7 @@ function displayTable($users)
             <th>Phone</th>
             <th>Company</th>
         </tr>
-        <?php foreach ($users as $user): ?>
+        <?php foreach ($users as $user) : ?>
             <tr>
                 <td>
                     <?= htmlspecialchars($user['name']) ?>
@@ -38,24 +38,63 @@ function displayTable($users)
             </tr>
         <?php endforeach; ?>
     </table>
-    <div class="add-form__container">
+    <div class="form__container">
         <form action="/" method="POST" id="add-form__form" novalidate>
-            <div><label>First Name: <input type="text" name="first_name" required></label></div>
-            <div><label>Last Name: <input type="text" name="last_name" required></label></div>
-            <div><label>Username: <input type="text" name="username" required></label></div>
-            <div><label>Email: <input type="email" name="email" required></label></div>
-            <div><label>Street: <input type="text" name="street" required></label></div>
-            <div><label>City: <input type="text" name="city" required></label></div>
-            <div><label>Zip code: <input type="text" name="zipcode" required></label></div>
-            <div><label>Phone:
-                    <input type="text" id="phone" name="phone" required>
-                    <input type="text" name="extension">
-                    <input type="text" name="country_code">
-                </label></div>
-            <div><label>Company: <input type="text" name="company" required></label></div>
-            <input type="submit" value="Submit">
+            <div class="form__input-container input-group">
+                <div class="form__input">
+                    <input type="text" name="first_name" id="first_name">
+                    <label for="first_name" id="first_name-label">First Name</label>
+                </div>
+                <div class="form__input">
+                    <input type="text" name="last_name" id="last_name">
+                    <label for="last_name" id="last_name-label">Last Name</label>
+                </div>
+            </div>
+            <div class="form__input-container">
+                <div class="form__input">
+                    <input type="text" name="username" id="username">
+                    <label for="username" id="username-label">Username</label>
+                </div>
+            </div>
+            <div class="form__input-container">
+                <div class="form__input">
+                    <input type="text" name="email" id="email">
+                    <label for="email" id="email-label">Email</label>
+                </div>
+            </div>
+            <div class="form__input-container input-group">
+                <div class="form__input">
+                    <input type="text" name="street" id="street">
+                    <label for="street" id="street-label">Street</label>
+                </div>
+                <div class="form__input">
+                    <input type="text" name="zipcode" id="zipcode">
+                    <label for="zipcode" id="zipcode-label">Zip Code</label>
+                </div>
+                <div class="form__input">
+                    <input type="text" name="city" id="city">
+                    <label for="city" id="city-label">City</label>
+                </div>
+            </div>
+            <div class="form__input-container input-group">
+                <div class="form__input">
+                    <input type="text" name="phone" id="phone">
+                    <label for="phone" id="phone-label">Phone</label>
+                </div>
+                <div class="form__input">
+                    <input type="text" name="extension" id="extension">
+                    <label for="extension" id="extension-label">Extension</label>
+                </div>
+            </div>
+            <div class="form__input-container">
+                <div class="form__input">
+                    <input type="text" name="company" id="company">
+                    <label for="company" id="company-label">Company</label>
+                </div>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
         </form>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }

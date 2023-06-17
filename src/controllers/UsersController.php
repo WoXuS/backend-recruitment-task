@@ -15,7 +15,6 @@ class UsersController
     {
         $users = $this->userModel->getAllUsers();
         echo displayTable($users);
-
     }
 
     public function removeUser($id)
@@ -55,27 +54,24 @@ class UsersController
             // Only letters and white space allowed
             die("Invalid city name");
         }
-        
+
         if (!preg_match("/^\d{5}(-\d{4})?$/", $newUser['zipcode'])) {
             // 12345-1234
             die("Invalid zip code");
         }
-        
-        if (!preg_match("/^\d*$/", $newUser['phone'])) {
+
+        if (!preg_match("/^\+1 \(\d{3}\) \d{3}-\d{4}$/", $newUser['phone'])) {
             die("Invalid phone number");
         }
-        if (!preg_match("/^\d*$/", $newUser['extension'])) {
+        if (!preg_match("/^x\d{0,6}$/", $newUser['extension'])) {
             die("Invalid extension number");
         }
-        if (!preg_match("/^\d*$/", $newUser['country_code'])) {
-            die("Invalid country code");
-        }
-        
+
         if (!preg_match("/^[ -~]*$/", $newUser['company'])) {
             //any printable
             die("Invalid characters in company name");
         }
-        
+
 
         $newUser = array(
             'name' => filter_var($newUser['name'], FILTER_SANITIZE_STRING),
@@ -91,5 +87,4 @@ class UsersController
         $this->userModel->addUser($newUser);
         $this->index();
     }
-
 }

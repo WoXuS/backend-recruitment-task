@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch assets/css/ -o assets/css/",
+    "scss": "nodemon -e scss -w assets/css/ -x \"node-sass assets/css/ -o assets/css/\" --delay 1",
     "serve": "browser-sync start --proxy localhost:8000 --files 'assets/css/*.css, assets/js/*.js, **/*.html, **/*.php'",
     "start": "concurrently \"npm:scss\" \"npm:serve\""
   },
@@ -16,10 +16,8 @@
     "concurrently": "^8.2.0",
     "eslint": "^8.7.0",
     "node-sass": "^9.0.0",
+    "nodemon": "^2.0.22",
     "prettier": "^2.5.1",
     "sass": "^1.63.2"
-  },
-  "dependencies": {
-    "cleave.js": "^1.6.0"
   }
 }

@@ -6,8 +6,11 @@ $(document).ready(function () {
     });
   });
 
+  let formSubmitted = false;
+
   $('#add-form__form').submit(function (e) {
     e.preventDefault();
+    formSubmitted = true;
     if (!validateForm()) return;
     let formData = $(this).serialize();
     $.post('/', { action: 'add', newUser: formData }, function (response) {
@@ -15,42 +18,81 @@ $(document).ready(function () {
     });
   });
 
-  const phoneInput = document.querySelector('#phone');
-
-  phoneInput.addEventListener('input', function (e) {
-    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-    e.target.value = !x[2] ? x[1] : `(${x[1]}) ${x[2]}-${x[3]}`;
+  $('#add-form__form input').on('blur input', function () {
+    if (formSubmitted) {
+      validateForm($(this));
+    }
+    if ($(this).val().trim() !== '') {
+      $(this).addClass('has-value');
+    } else {
+      $(this).removeClass('has-value');
+    }
   });
+
+  const phoneInput = document.querySelector('#phone');
+  const extensionInput = document.querySelector('#extension');
+  const zipcodeInput = document.querySelector('#zipcode');
+
+  if (phoneInput !== null) {
+    let phoneMask = new Inputmask({
+      mask: '+1 (999) 999-9999',
+      placeholder: '_',
+      showMaskOnHover: false,
+      showMaskOnFocus: true
+    });
+    phoneMask.mask(phoneInput);
+  }
+
+  if (extensionInput !== null) {
+    let extensionMask = new Inputmask({
+      mask: 'x999999',
+      placeholder: '_',
+      showMaskOnHover: false,
+      showMaskOnFocus: true
+    });
+    extensionMask.mask(extensionInput);
+  }
+
+  if (zipcodeInput !== null) {
+    let zipcodeMask = new Inputmask({
+      mask: '99999[-9999]',
+      placeholder: '_',
+      showMaskOnHover: false,
+      showMaskOnFocus: true
+    });
+    zipcodeMask.mask(zipcodeInput);
+  }
 
   function validateForm() {
     let form = document.forms['add-form__form'];
 
-    let fields = [
-      'first_name',
-      'last_name',
-      'username',
-      'email',
-      'street',
-      'city',
-      'zipcode',
-      'phone',
-      'extension',
-      'country_code',
-      'company'
-    ];
+    let fields = {
+      first_name: { required: true, label: 'First Name' },
+      last_name: { required: true, label: 'Last Name' },
+      username: { required: true, label: 'Username' },
+      email: { required: true, label: 'Email' },
+      street: { required: true, label: 'Street' },
+      city: { required: true, label: 'City' },
+      zipcode: { required: true, label: 'Zip Code' },
+      phone: { required: true, label: 'Phone' },
+      extension: { required: false, label: 'Extension' },
+      company: { required: true, label: 'Company' }
+    };
+
     let isValid = true;
 
-    fields.forEach((field) => {
-      let value = form[field].value;
+    for (let field in fields) {
+      let value = form[field].value.trim();
       let error = '';
-      if (value === '') {
-        error = field + ' is required';
+
+      if (fields[field].required && value === '') {
+        error = fields[field].label + ' is required';
       } else {
         switch (field) {
           case 'first_name':
           case 'last_name':
             if (!/^\s*[a-zA-Z][a-zA-Z\s]*$/.test(value)) {
-              error = 'Invalid name. Only letters and white space allowed';
+              error = 'Invalid name. Only letters are allowed';
             }
             break;
           case 'username':
@@ -61,12 +103,12 @@ $(document).ready(function () {
             break;
           case 'email':
             if (!/\S+@\S+\.\S+/.test(value)) {
-              error = 'Invalid email format';
+              error = 'Invalid email';
             }
             break;
           case 'street':
             if (!/^[a-zA-Z0-9\.]*$/.test(value)) {
-              error = 'Invalid street. Only letters, numbers and . are allowed';
+              error = 'Invalid street. Only letters and numbers are allowed';
             }
             break;
           case 'city':
@@ -80,10 +122,8 @@ $(document).ready(function () {
             }
             break;
           case 'phone':
-          case 'extension':
-          case 'country_code':
-            if (!/^\d*$/.test(value)) {
-              error = 'Invalid number. Only digits are allowed';
+            if (!/^\+1 \(\d{3}\) \d{3}-\d{4}$/.test(value)) {
+              error = 'Invalid phone number';
             }
             break;
         }
@@ -95,11 +135,8 @@ $(document).ready(function () {
       } else {
         clearError(form[field]);
       }
-    });
-
-    if (isValid) {
-      form.submit();
     }
+
     return isValid;
   }
 
@@ -111,6 +148,10 @@ $(document).ready(function () {
       field.parentElement.appendChild(errorField);
     }
     field.classList.add('error');
+
+    let label = field.parentElement.querySelector('label');
+    label.style.color = 'var(--color-error)';
+
     errorField.textContent = message;
     errorField.style.display = 'block';
   }
@@ -121,5 +162,8 @@ $(document).ready(function () {
     if (errorField) {
       errorField.style.display = 'none';
     }
+
+    let label = field.parentElement.querySelector('label');
+    label.style.color = 'inherit';
   }
 });
