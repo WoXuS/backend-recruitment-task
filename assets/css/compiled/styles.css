@@ -219,7 +219,8 @@ table {
       display: inline-block;
       line-height: 1.5;
       width: max-content;
-      white-space: nowrap; } }
+      white-space: nowrap;
+      margin-right: 1rem; } }
 
 .navbar {
   background-color: var(--color-primary);

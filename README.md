@@ -1,86 +1,60 @@
-# Backend/Full-stack recruitment task
+# UsersMVC
 
-----
+[![PHP](https://img.shields.io/badge/PHP-8.2-blue)](https://www.php.net/)
+[![Apache](https://img.shields.io/badge/Apache-2.4-blue)](https://httpd.apache.org/)
+[![Docker](https://img.shields.io/badge/Docker-blue)](https://www.docker.com/)
+[![Node Sass](https://img.shields.io/badge/Node%20Sass-9.0.0-blue)](https://github.com/sass/node-sass)
+[![BrowserSync](https://img.shields.io/badge/BrowserSync-2.29.3-blue)](https://browsersync.io/)
 
+A user-friendly and fully responsive application that displays user data from a JSON file in a tabular format. Built using PHP 8.2 and Apache, this project provides functionalities such as removing users either individually or in bulk, form submission with server and client-side validation, custom input masking, and pagination.
 
-Hello there! we can't wait to see to you on board 🚀
+## Table of Contents
 
-We will kindly ask you to take a look at this super simple recruitment task that will give us a lot of information about your skills with little effort on side. 
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Usage](#usage)
 
+## Features
 
-### 📋   Requirements
+- Displays user data from a JSON file in a tabular format
+- Allows removal of users, either individually or in bulk
+- Provides a form for adding new users with custom input masking for phone, zip code, and number extension
+- Implements server and client-side validation, including checking for email duplication
+- Features pagination with a maximum of 5 rows per page
+- Styles mimic Google's material design, with a navigation bar that includes a UsersMVC logo and two hyperlinks with active state functionality
 
-- PHP server (>= 8.0) 
-  Really, that's all you need 🙂
+## Screenshots
 
+![Users MVC Main View](./screenshots/users-mvc-users-view.png)
+![Users MVC Add New User View](./screenshots/users-mvc-add-user-view.png)
+![Users MVC Main View on Mobile](./screenshots/users-mvc-users-mobile-view.png)
 
-### ⚙️File structure
+## Installation
 
+You need to have Docker installed on your machine to set up and run this project.
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/WoXuS/users-mvc.git
+cd users-mvc
+npm install
 ```
-│   index.php
-├───assets
-│   ├───css
-│   │       styles.css
-│   └───js
-│           script.js
-├───dataset
-│       users.json
-└───partials
-        main.php
+
+Build and run the Docker container:
+
+```bash
+docker-compose up --build -d
 ```
 
-- Your entry file for PHP is `main.php` - feel free to organize other PHP files just the way you like it
-- Your datasource is `users.json` file - all changes (see points 2 and 3) have to be saved
-- For scripts and styles, use the `styles.scss` and `script.js` files - those are not necessary, but we will highly appreciate it 
+## Usage
 
+To start the development server, run:
 
+```bash
+npm start
+```
 
-### 💻   Your task 
-
-The recruitment task consists of 3 steps
-
-1️⃣ Create a simple table which lists the users from `users.json` file
-
-| Name             | Username  | Email              | Address                                     | Phone                 | Company            |
-| ---------------- | --------- | ------------------ | ------------------------------------------- | --------------------- | ------------------ |
-| Leanne Graham    | Bret      | Sincere@april.biz  | Kulas Light, 92998-3874 Gwenborough         | 1-770-736-8031 x56442 | Romaguera-Crona    |
-| Ervin Howell     | Antonette | Shanna@melissa.ts  | Victor Plains, 90566-7771 Wisokyburgh       | 010-692-6593 x09125   | Deckow-Crist       |
-| Clementine Bauch | Samantha  | Nathan@yesenia.ner | Douglas Extension, 59590-4157 McKenziehaven | 1-463-123-4447        | Romaguera-Jacobson |
-
-2️⃣ Add a "Remove" button for each row, once clicked - the selected user should be removed from the JSON file, the page should be reloaded after the button is clicked. 
-
-| Name             | Username  | Email              | Address                                     | Phone                 | Company            |                   |
-| ---------------- | --------- | ------------------ | ------------------------------------------- | --------------------- | ------------------ | ----------------- |
-| Leanne Graham    | Bret      | Sincere@april.biz  | Kulas Light, 92998-3874 Gwenborough         | 1-770-736-8031 x56442 | Romaguera-Crona    | **REMOVE BUTTON** |
-| Ervin Howell     | Antonette | Shanna@melissa.ts  | Victor Plains, 90566-7771 Wisokyburgh       | 010-692-6593 x09125   | Deckow-Crist       | **REMOVE BUTTON** |
-| Clementine Bauch | Samantha  | Nathan@yesenia.ner | Douglas Extension, 59590-4157 McKenziehaven | 1-463-123-4447        | Romaguera-Jacobson | **REMOVE BUTTON** |
-
-3️⃣ Add a simple form for adding a new user to the JSON file. 
-
-| Name             | Username  | Email              | Address                                     | Phone                 | Company            |                   |
-| ---------------- | --------- | ------------------ | ------------------------------------------- | --------------------- | ------------------ | ----------------- |
-| Leanne Graham    | Bret      | Sincere@april.biz  | Kulas Light, 92998-3874 Gwenborough         | 1-770-736-8031 x56442 | Romaguera-Crona    | **REMOVE BUTTON** |
-| Ervin Howell     | Antonette | Shanna@melissa.ts  | Victor Plains, 90566-7771 Wisokyburgh       | 010-692-6593 x09125   | Deckow-Crist       | **REMOVE BUTTON** |
-| Clementine Bauch | Samantha  | Nathan@yesenia.ner | Douglas Extension, 59590-4157 McKenziehaven | 1-463-123-4447        | Romaguera-Jacobson | **REMOVE BUTTON** |
-
-**Name input** | **Username input** | **Email input** | **Address input** | **Phone Input**	| **Company Input** | **SUBMIT BUTTON**
-
----
-
-
-
-
-
-
-⚠️You have a free reign in terms of the architecture - creating controllers and models will be a huge plus
-
-⚠️We don't insist on fancy styling for the table, but anything else than the raw layout will be appreciated
-
-⚠️We will check aspects like code readability, scalability and error handling
-
-⏳ Don't hurry up! Take as much time as you need
-
-
-⚠️The easiest way to start is to fork this repository, but feel free to use any other method
-
-Good luck ! 🔥
+For hot-reload functionality open http://localhost:3000 to view the proxied application in your browser.
+Open http://localhost:8000 for the application straight from Docker.
