@@ -28,7 +28,7 @@ A user-friendly and fully responsive application that displays user data from a 
 
 ![Users MVC Main View](./screenshots/users-mvc-users-view.png)
 ![Users MVC Add New User View](./screenshots/users-mvc-add-user-view.png)
-![Users MVC Main View on Mobile](./screenshots/users-mvc-users-mobile-view.png)
+![Users MVC Main View on Mobile](./screenshots/users-mvc-mobile-view.png)
 
 ## Installation
 
