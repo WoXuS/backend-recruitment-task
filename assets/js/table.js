@@ -12,7 +12,6 @@ export const removeButtonHandler = () => {
       selectedIds.push($(this).data('id'));
     });
     if (selectedIds.length > 0) {
-      console.log(selectedIds);
       $.post('/', { action: 'remove', id: selectedIds }, () => {
         location.reload();
       });

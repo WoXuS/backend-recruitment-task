@@ -1,6 +1,5 @@
 .form__container {
-  max-width: 444px;
-  padding-top: 6rem;
+  max-width: 500px;
 
   .form__button-section {
     margin-top: 15px;
@@ -108,5 +107,11 @@
   &.input-group {
     display: flex;
     gap: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form__container {
+    max-width: 444px;
   }
 }

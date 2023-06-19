@@ -10,53 +10,53 @@ function displayForm()
         <form action="/" method="POST" id="add-form__form" novalidate>
             <div class="form__input-container input-group">
                 <div class="form__input">
-                    <input type="text" name="first_name" id="first_name" value="John">
+                    <input type="text" name="first_name" id="first_name">
                     <label for="first_name" id="first_name-label">First Name</label>
                 </div>
                 <div class="form__input">
-                    <input type="text" name="last_name" id="last_name" value="Doe">
+                    <input type="text" name="last_name" id="last_name">
                     <label for="last_name" id="last_name-label">Last Name</label>
                 </div>
             </div>
             <div class="form__input-container">
                 <div class="form__input">
-                    <input type="text" name="username" id="username" value="johndoe">
+                    <input type="text" name="username" id="username">
                     <label for="username" id="username-label">Username</label>
                 </div>
             </div>
             <div class="form__input-container">
                 <div class="form__input">
-                    <input type="text" name="email" id="email" value="john.doe@example.com">
+                    <input type="text" name="email" id="email">
                     <label for="email" id="email-label">Email</label>
                 </div>
             </div>
             <div class="form__input-container input-group">
                 <div class="form__input">
-                    <input type="text" name="street" id="street" value="123 Main St">
+                    <input type="text" name="street" id="street">
                     <label for="street" id="street-label">Street</label>
                 </div>
                 <div class="form__input">
-                    <input type="text" name="zipcode" id="zipcode" value="902101234">
+                    <input type="text" name="zipcode" id="zipcode">
                     <label for="zipcode" id="zipcode-label">Zip Code</label>
                 </div>
                 <div class="form__input">
-                    <input type="text" name="city" id="city" value="Los Angeles">
+                    <input type="text" name="city" id="city">
                     <label for="city" id="city-label">City</label>
                 </div>
             </div>
             <div class="form__input-container input-group">
                 <div class="form__input">
-                    <input type="text" name="phone" id="phone" value="+1 (123) 456-7890">
+                    <input type="text" name="phone" id="phone">
                     <label for="phone" id="phone-label">Phone</label>
                 </div>
                 <div class="form__input">
-                    <input type="text" name="extension" id="extension" value="x123456">
+                    <input type="text" name="extension" id="extension">
                     <label for="extension" id="extension-label">Extension</label>
                 </div>
             </div>
             <div class="form__input-container">
                 <div class="form__input">
-                    <input type="text" name="company" id="company" value="Acme Inc">
+                    <input type="text" name="company" id="company">
                     <label for="company" id="company-label">Company</label>
                 </div>
             </div>
@@ -65,7 +65,7 @@ function displayForm()
                     <div class="form__success-container">
                         <div class='form__success-msg'>✓ User <?php echo $user_added; ?> added successfully. What would you like to do?</div>
                         <div class="form__button-group">
-                            <input type="submit" value="Add another user" class="btn btn-primary">
+                            <input type="submit" class="btn btn-primary">
                             <a href="/users" class='btn'>View all users</a>
                         </div>
                     </div>

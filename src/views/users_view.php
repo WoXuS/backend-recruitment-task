@@ -21,16 +21,16 @@ function displayTable($users)
                 <?php foreach ($users as $user) : ?>
                     <tr>
                         <td><input type="checkbox" class="user-checkbox" data-id="<?= $user['id'] ?>"></td>
-                        <td><?= htmlspecialchars($user['name']) ?></td>
-                        <td><?= htmlspecialchars($user['username']) ?></td>
-                        <td><?= htmlspecialchars($user['email']) ?></td>
-                        <td>
+                        <td data-label='Name'><?= htmlspecialchars($user['name']) ?></td>
+                        <td data-label='Username'><?= htmlspecialchars($user['username']) ?></td>
+                        <td data-label='Email'><?= htmlspecialchars($user['email']) ?></td>
+                        <td data-label='Address'>
                             <?= htmlspecialchars($user['address']['street']) ?>,
                             <?= htmlspecialchars($user['address']['zipcode']) ?>
                             <?= htmlspecialchars($user['address']['city']) ?>
                         </td>
-                        <td><?= htmlspecialchars($user['phone']) ?></td>
-                        <td><?= htmlspecialchars($user['company']['name']) ?></td>
+                        <td data-label='Phone'><?= htmlspecialchars($user['phone']) ?></td>
+                        <td data-label='Company'><?= htmlspecialchars($user['company']['name']) ?></td>
                         <td><button class="btn btn-primary remove-button" data-id="<?= $user['id'] ?>">Remove</button></td>
                     </tr>
                 <?php endforeach; ?>
@@ -38,9 +38,10 @@ function displayTable($users)
         </table>
         <button class="btn btn-primary remove-selected-button">Remove Selected</button>
         <div id="pagination-container">
-            <button id="prev-page" disabled><</button>
-            <div id="pagination"></div>
-            <button id="next-page" disabled>></button>
+            <button id="prev-page" disabled>
+                <</button>
+                    <div id="pagination"></div>
+                    <button id="next-page" disabled>></button>
         </div>
     </div>
 <?php
