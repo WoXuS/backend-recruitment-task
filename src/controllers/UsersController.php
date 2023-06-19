@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../models/User.php';
-require_once __DIR__ . '/../views/users_view.php';
 
 class UsersController
 {
@@ -14,7 +13,21 @@ class UsersController
     public function index()
     {
         $users = $this->userModel->getAllUsers();
+        ob_start();
+        require __DIR__ . '/../views/users_view.php';
         echo displayTable($users);
+        $content = ob_get_clean();
+        return $content;
+    }
+
+
+    public function showAddUserForm()
+    {
+        ob_start();
+        require __DIR__ . '/../views/add_users_form.php';
+        echo displayForm();
+        $content = ob_get_clean();
+        return $content;
     }
 
     public function removeUser($id)
@@ -40,6 +53,10 @@ class UsersController
 
         if (!htmlspecialchars($newUser['email'], FILTER_VALIDATE_EMAIL)) {
             $_SESSION['errors']['email'] = "Invalid email";
+        }
+
+        if ($this->userModel->emailExists($newUser['email'])) {
+            $_SESSION['errors']['email'] = "Email is already taken";
         }
 
         if (!preg_match("/^[a-zA-Z0-9\. ]*$/", $newUser['street'])) {
@@ -82,6 +99,7 @@ class UsersController
         );
 
         $this->userModel->addUser($newUser);
+        $_SESSION['user_added'] = $newUser['name'];
         $this->index();
     }
 }

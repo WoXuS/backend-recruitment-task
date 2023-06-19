@@ -22,6 +22,17 @@ class User
         file_put_contents($this->dataFile, json_encode($users, JSON_PRETTY_PRINT));
     }
 
+    public function emailExists($email)
+    {
+        $users = $this->getAllUsers();
+        foreach ($users as $user) {
+            if ($user['email'] === $email) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function addUser($newUser)
     {
         $users = $this->getAllUsers();
@@ -54,5 +65,4 @@ class User
         $users[] = $completeUser;
         file_put_contents($this->dataFile, json_encode($users, JSON_PRETTY_PRINT));
     }
-
 }

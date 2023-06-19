@@ -92,29 +92,6 @@
         }
     },
     {
-        "id": 5,
-        "name": "Chelsey Dietrich",
-        "username": "Kamren",
-        "email": "Lucio_Hettinger@annie.ca",
-        "address": {
-            "street": "Skiles Walks",
-            "suite": "Suite 351",
-            "city": "Roscoeview",
-            "zipcode": "33263",
-            "geo": {
-                "lat": "-31.8129",
-                "lng": "62.5342"
-            }
-        },
-        "phone": "(254)954-1289",
-        "website": "demarco.info",
-        "company": {
-            "name": "Keebler LLC",
-            "catchPhrase": "User-centric fault-tolerant solution",
-            "bs": "revolutionize end-to-end systems"
-        }
-    },
-    {
         "id": 7,
         "name": "Kurtis Weissnat",
         "username": "Elwyn.Skiles",
@@ -185,34 +162,34 @@
     },
     {
         "id": 10,
-        "name": "Clementina DuBuque",
-        "username": "Moriah.Stanton",
-        "email": "Rey.Padberg@karina.biz",
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "john.doe@example.com",
         "address": {
-            "street": "Kattie Turnpike",
-            "suite": "Suite 198",
-            "city": "Lebsackbury",
-            "zipcode": "31428-2261",
+            "street": "123 Main St",
+            "suite": "Default Suite",
+            "city": "Los Angeles",
+            "zipcode": "90210-1234",
             "geo": {
-                "lat": "-38.2386",
-                "lng": "57.2232"
+                "lat": "0.0000",
+                "lng": "0.0000"
             }
         },
-        "phone": "024-648-3804",
-        "website": "ambrose.net",
+        "phone": "+1 (123) 456-7890 x123456",
+        "website": "defaultwebsite.com",
         "company": {
-            "name": "Hoeger LLC",
-            "catchPhrase": "Centralized empowering task-force",
-            "bs": "target end-to-end models"
+            "name": "Acme Inc",
+            "catchPhrase": "Default CatchPhrase",
+            "bs": "Default BS"
         }
     },
     {
         "id": 11,
         "name": "John Doe",
         "username": "johndoe",
-        "email": "john.doe@example.com",
+        "email": "john.doe@example.co",
         "address": {
-            "street": "123ma",
+            "street": "123 Main St",
             "suite": "Default Suite",
             "city": "Los Angeles",
             "zipcode": "90210-1234",
@@ -233,9 +210,9 @@
         "id": 12,
         "name": "John Doe",
         "username": "johndoe",
-        "email": "john.doe@example.com",
+        "email": "john.doe@example.c",
         "address": {
-            "street": "main",
+            "street": "123 Main St",
             "suite": "Default Suite",
             "city": "Los Angeles",
             "zipcode": "90210-1234",
@@ -256,9 +233,78 @@
         "id": 13,
         "name": "John Doe",
         "username": "johndoe",
-        "email": "john.doe@example.com",
+        "email": "john.doe@example.p",
         "address": {
-            "street": "12",
+            "street": "123 Main St",
+            "suite": "Default Suite",
+            "city": "Los Angeles",
+            "zipcode": "90210-1234",
+            "geo": {
+                "lat": "0.0000",
+                "lng": "0.0000"
+            }
+        },
+        "phone": "+1 (123) 456-7890 x123456",
+        "website": "defaultwebsite.com",
+        "company": {
+            "name": "Acme Inc",
+            "catchPhrase": "Default CatchPhrase",
+            "bs": "Default BS"
+        }
+    },
+    {
+        "id": 14,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "john.doe@example.pl",
+        "address": {
+            "street": "123 Main St",
+            "suite": "Default Suite",
+            "city": "Los Angeles",
+            "zipcode": "90210-1234",
+            "geo": {
+                "lat": "0.0000",
+                "lng": "0.0000"
+            }
+        },
+        "phone": "+1 (123) 456-7890 x123456",
+        "website": "defaultwebsite.com",
+        "company": {
+            "name": "Acme Inc",
+            "catchPhrase": "Default CatchPhrase",
+            "bs": "Default BS"
+        }
+    },
+    {
+        "id": 15,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "john.doe@example.de",
+        "address": {
+            "street": "123 Main St",
+            "suite": "Default Suite",
+            "city": "Los Angeles",
+            "zipcode": "90210-1234",
+            "geo": {
+                "lat": "0.0000",
+                "lng": "0.0000"
+            }
+        },
+        "phone": "+1 (123) 456-7890 x123456",
+        "website": "defaultwebsite.com",
+        "company": {
+            "name": "Acme Inc",
+            "catchPhrase": "Default CatchPhrase",
+            "bs": "Default BS"
+        }
+    },
+    {
+        "id": 16,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "john.doe@example.d",
+        "address": {
+            "street": "123 Main St",
             "suite": "Default Suite",
             "city": "Los Angeles",
             "zipcode": "90210-1234",

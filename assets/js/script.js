@@ -19,7 +19,12 @@ $(document).ready(function () {
           displayError(document.forms['add-form__form'][field], response.errors[field]);
         }
       } else {
-        location.reload();
+        $('.success-container').html(
+          `<div class='success-msg'>User ${response.user_added} added successfully. What would you like to do?</div>
+           <button class='btn btn-success add-another'>Add another user</button>
+           <a href="/users" class='btn btn-success'>View all users</a>`
+        );
+        $('#add-form__form').find('input[type=text], input[type=email]').val('');
       }
     });
   });

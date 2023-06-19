@@ -1,9 +1,27 @@
 .form__container {
   max-width: 444px;
-  margin: 0 auto;
+  padding-top: 6rem;
 
-  input[type='submit'] {
+  .form__button-section {
     margin-top: 15px;
+  }
+  .form__success-container {
+    .form__success-msg {
+      color: var(--color-success);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .form__button-group {
+      display: flex;
+      gap: 15px;
+      input[type='submit'] {
+        width: 60%;
+      }
+      a {
+        width: 40%;
+      }
+    }
   }
 }
 
