@@ -1,6 +1,19 @@
 .table__container {
-  overflow-x: auto;
+  overflow-x: visible;
   padding-top: 6rem;
+
+  .remove-selected-button {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    width: max-content;
+    margin-top: 1.5rem;
+  }
+
+  .remove-selected-button.show {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 table {

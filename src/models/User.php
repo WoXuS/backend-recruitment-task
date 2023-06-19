@@ -9,18 +9,21 @@ class User
         return $data;
     }
 
-    public function removeUser($id)
+    public function removeUsers($ids)
     {
-        $id = (int) $id;
         $users = $this->getAllUsers();
-        foreach ($users as $index => $user) {
-            if ($user['id'] === $id) {
-                array_splice($users, $index, 1);
-                break;
+        foreach ($ids as $id) {
+            $id = (int) $id;
+            foreach ($users as $index => $user) {
+                if ($user['id'] === $id) {
+                    array_splice($users, $index, 1);
+                    break;
+                }
             }
         }
         file_put_contents($this->dataFile, json_encode($users, JSON_PRETTY_PRINT));
     }
+
 
     public function emailExists($email)
     {

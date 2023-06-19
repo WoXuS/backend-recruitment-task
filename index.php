@@ -9,8 +9,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
     if ($action === 'remove') {
-        $id = $_POST['id'] ?? '';
-        $controller->removeUser($id);
+        $ids = $_POST['id'] ?? '';
+        $controller->removeUsers($ids);
     } else if ($action === 'add') {
         $newUser = [];
         if (isset($_POST['newUser'])) {

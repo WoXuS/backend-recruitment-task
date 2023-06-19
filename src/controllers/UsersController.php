@@ -30,11 +30,12 @@ class UsersController
         return $content;
     }
 
-    public function removeUser($id)
+    public function removeUsers($ids)
     {
-        $this->userModel->removeUser($id);
+        $this->userModel->removeUsers($ids);
         $this->index();
     }
+
 
     public function addUser($newUser)
     {
